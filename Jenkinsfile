@@ -1,19 +1,19 @@
 //DECLARATIVE
-pipiline{
+pipeline{
 	agent any
-	stages{
+	stages {
 		stage('Build') {
 			steps{
 				echo "Build"
 			}
 		}
 		stage('Test') {
-			steps{
+			steps {
 				echo "Test"
 			}
 		}
 		stage('Integration Test') {
-			steps{
+			steps {
 				echo "Integration Test"
 			}
 		}
