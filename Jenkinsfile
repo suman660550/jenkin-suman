@@ -1,9 +1,9 @@
-//DECLARATIVE
-pipeline{
+//DECLARATIVE format
+pipeline {
 	agent any
 	stages {
 		stage('Build') {
-			steps{
+			steps {
 				echo "Build"
 			}
 		}
@@ -18,7 +18,22 @@ pipeline{
 			}
 		}
 	}
+
+    post {
+	    always {
+			echo 'Im awedome. I run always'
+		}
+		success {
+			echo 'I run when you are successful'
+		}
+		failure {
+			echo 'I run when you ar fail'
+			
+		}
+	}
 }
+
+
 
 
 
