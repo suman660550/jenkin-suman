@@ -1,4 +1,28 @@
-//scripted new one
+//DECLARATIVE
+pipiline{
+	agent any
+	stages{
+		stage('Build') {
+			steps{
+				echo "Build"
+			}
+		}
+		stage('Test') {
+			steps{
+				echo "Test"
+			}
+		}
+		stage('Integration Test') {
+			steps{
+				echo "Integration Test"
+			}
+		}
+	}
+}
+
+
+
+/*scripted new one
 node{
 	echo "Build"
 	echo "Test"
@@ -9,7 +33,7 @@ node{
 
 
 
-/*node {
+node {
 	stage('Build') {
 		echo "Build"
 	}
