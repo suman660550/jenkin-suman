@@ -7,7 +7,7 @@ pipeline {
 		PATH = "dockerHome/bin:$mavenHome/bin:$PATH"
 	}
 	stages {
-		stage('Build') {
+		stage('Chekout') {
 			steps {
 				//sh 'node --version'
 				sh 'mvn --version'
@@ -15,7 +15,7 @@ pipeline {
 				echo "Build"
 				echo "PATH - $PATH"
 				echo "BUILD_NUMBER - $env.BUILD_NUMBER"
-				echo "Build_ID - $env.BUILD_ID"
+				echo "BUILD_ID - $env.BUILD_ID"
 				echo "JOB_NAME - $env.JOB_NAME"
 				echo "BUILD_TAG -$env.BUILD_URL"
 			}
@@ -32,20 +32,20 @@ pipeline {
 		}
 		stage('Integration Test') {
 			steps {
-				sh "mvn failsafe:integration-test failsafe:very"
+				sh "mvn failsafe:integration-test failsafe:verify"
 			}
 		}
 	}
 
     post {
 	    always {
-			echo 'Im awedome. I run always'
+			echo 'Im awesome. I run always'
 		}
 		success {
 			echo 'I run when you are successful'
 		}
 		failure {
-			echo 'I run when you ar fail'
+			echo 'I run when you are fail'
 			
 		}
 	}
