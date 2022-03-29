@@ -1,11 +1,16 @@
 //DECLARATIVE format
 pipeline {
-	agent { docker { image 'node:13.8'} }
+	agent any
 	stages {
 		stage('Build') {
 			steps {
-				sh 'node --version'
+				//sh 'node --version'
 				echo "Build"
+				echo "PATH - $PATH"
+				echo "BUILD_NUMBER - $env.BUILD_NUMBER"
+				echo "Build_ID - $env.BUILD_ID"
+				echo "JOB_NAME - $env.JOB_NAME"
+				echo "BUILD_TAG -$env.BUILD_URL"
 			}
 		}
 		stage('Test') {
